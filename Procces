@@ -54,18 +54,36 @@ title.TextSize = 22
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.Parent = frame
 
+-- Create Close Button
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0.35, 0, 0, 40)
+closeButton.Position = UDim2.new(0.1, 0, 0.5, -20)
+closeButton.BackgroundColor3 = Color3.fromRGB(220, 60, 60)
+closeButton.Text = "Close"
+closeButton.Font = Enum.Font.SourceSans
+closeButton.TextSize = 20
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Parent = frame
+
 -- Create Button
-local button = Instance.new("TextButton")
-button.Size = UDim2.new(0.8, 0, 0, 40)
-button.Position = UDim2.new(0.1, 0, 0.5, -20)
-button.BackgroundColor3 = Color3.fromRGB(70, 130, 180)
-button.Text = "Close"
-button.Font = Enum.Font.SourceSans
-button.TextSize = 20
-button.TextColor3 = Color3.fromRGB(255, 255, 255)
-button.Parent = frame
+local createButton = Instance.new("TextButton")
+createButton.Size = UDim2.new(0.35, 0, 0, 40)
+createButton.Position = UDim2.new(0.55, 0, 0.5, -20)
+createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 90)
+createButton.Text = "Create"
+createButton.Font = Enum.Font.SourceSans
+createButton.TextSize = 20
+createButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+createButton.Parent = frame
 
 -- Button functionality: Close the GUI
-button.MouseButton1Click:Connect(function()
+closeButton.MouseButton1Click:Connect(function()
     screenGui:Destroy()
+end)
+
+-- Button functionality: Create action
+createButton.MouseButton1Click:Connect(function()
+    createButton.Text = "Created!"
+    wait(1)
+    createButton.Text = "Create"
 end)
