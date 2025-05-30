@@ -88,7 +88,7 @@ local createButton = Instance.new("TextButton")
 createButton.Size = UDim2.new(0.4, -8, 0, 48)
 createButton.Position = UDim2.new(0.05, 0, 0.65, 0)
 createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 220)
-createButton.Text = "FxZ"
+createButton.Text = "Fx"
 createButton.Font = Enum.Font.GothamBold
 createButton.TextSize = 22
 createButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -150,7 +150,7 @@ end)
 
 -- Button functionality: Surprise action
 surpriseButton.MouseButton1Click:Connect(function()
-    surpriseButton.Text = "🎉 Wow! 🎉"
+    surpriseButton.Text = "https://discord.gg/f9CEfBPJ"
     TweenService:Create(surpriseButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 180, 90)}):Play()
     wait(1)
     surpriseButton.Text = "Surprise!"
