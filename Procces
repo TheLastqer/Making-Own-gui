@@ -67,12 +67,12 @@ closeButton.Parent = frame
 
 -- Create Button
 local createButton = Instance.new("TextButton")
-createButton.Size = UDim2.new(2, 0, 0, 40)
+createButton.Size = UDim2.new(2, 5, 10, 40)
 createButton.Position = UDim2.new(0.55, 0, 0.5, -20)
 createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 90)
 createButton.Text = "fxz"
 createButton.Font = Enum.Font.SourceSans
-createButton.TextSize = 20
+createButton.TextSize = 50
 createButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 createButton.Parent = frame
 
@@ -87,3 +87,6 @@ createButton.MouseButton1Click:Connect(function()
     wait(1)
     createButton.Text = "Create"
 end)
+
+
+
