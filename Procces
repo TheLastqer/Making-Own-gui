@@ -88,7 +88,7 @@ local createButton = Instance.new("TextButton")
 createButton.Size = UDim2.new(0.4, -8, 0, 48)
 createButton.Position = UDim2.new(0.05, 0, 0.65, 0)
 createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 220)
-createButton.Text = "Fxz Hub"
+createButton.Text = "FxZ Hub"
 createButton.Font = Enum.Font.GothamBold
 createButton.TextSize = 22
 createButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -140,7 +140,7 @@ end)
 
 -- Button functionality: FxZ action (runs your script)
 createButton.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/TheLastqer/v1/refs/heads/main/FxZ%20Hub'))()
+    loadstring(game:HttpGet('loadstring(game:HttpGet('https://raw.githubusercontent.com/TheLastqer/FxZ-Hub-v1.01/refs/heads/main/FxZ%20Hub%20V1.01'))()'))()
     createButton.Text = "Loaded!"
     TweenService:Create(createButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(40, 130, 180)}):Play()
     wait(1)
