@@ -7,84 +7,12 @@ screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 -- Create Frame
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 260, 0, 140)
-frame.Position = UDim2.new(0.5, -130, 0.5, -70)
-frame.BackgroundColor3 = Color3.fromRGB(30, 34, 44)
+frame.Size = UDim2.new(0, 225, 0, 120)
+frame.Position = UDim2.new(0.5, -125, 0.5, -60)
+frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 frame.BorderSizePixel = 0
-frame.Active = true
+frame.Active = true           -- Enable input on the frame
 frame.Parent = screenGui
-
--- Rounded corners
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 16)
-corner.Parent = frame
-
--- Drop shadow
-local shadow = Instance.new("ImageLabel")
-shadow.BackgroundTransparency = 1
-shadow.Image = "rbxassetid://1316045217"
-shadow.ImageTransparency = 0.5
-shadow.Size = UDim2.new(1, 24, 1, 24)
-shadow.Position = UDim2.new(0, -12, 0, -12)
-shadow.ZIndex = 0
-shadow.Parent = frame
-
--- Create Title Label
-local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1, 0, 0, 36)
-title.BackgroundTransparency = 1
-title.Text = "Procees LOL FxZ"
-title.Font = Enum.Font.GothamBold
-title.TextSize = 24
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.TextStrokeTransparency = 0.8
-title.Parent = frame
-
--- Create Close Button
-local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0.4, -5, 0, 40)
-closeButton.Position = UDim2.new(0.05, 0, 0.6, 0)
-closeButton.BackgroundColor3 = Color3.fromRGB(220, 60, 60)
-closeButton.Text = "Close"
-closeButton.Font = Enum.Font.Gotham
-closeButton.TextSize = 20
-closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeButton.AutoButtonColor = true
-closeButton.Parent = frame
-
-local closeCorner = Instance.new("UICorner")
-closeCorner.CornerRadius = UDim.new(0, 10)
-closeCorner.Parent = closeButton
-
--- Create "fxz" Button
-local createButton = Instance.new("TextButton")
-createButton.Size = UDim2.new(0.4, -5, 0, 40)
-createButton.Position = UDim2.new(0.55, 5, 0.6, 0)
-createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 90)
-createButton.Text = "fxz"
-createButton.Font = Enum.Font.Gotham
-createButton.TextSize = 20
-createButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-createButton.AutoButtonColor = true
-createButton.Parent = frame
-
-local createCorner = Instance.new("UICorner")
-createCorner.CornerRadius = UDim.new(0, 10)
-createCorner.Parent = createButton
-
--- Button functionality: Close the GUI
-closeButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy()
-end)
-
--- Button functionality: Create action
-createButton.MouseButton1Click:Connect(function()
-    createButton.Text = "Created!"
-    createButton.BackgroundColor3 = Color3.fromRGB(40, 130, 60)
-    wait(1)
-    createButton.Text = "fxz"
-    createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 90)
-end)
 
 -- Custom Drag Script
 local dragging, dragInput, dragStart, startPos
@@ -114,4 +42,48 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
         local delta = input.Position - dragStart
         frame.Position = startPos + UDim2.new(0, delta.X, 0, delta.Y)
     end
+end)
+
+-- Create Title Label
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundTransparency = 1
+title.Text = "Procees LOL FxZ"
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 22
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Parent = frame
+
+-- Create Close Button
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0.35, 0, 0, 40)
+closeButton.Position = UDim2.new(0.1, 0, 0.5, -20)
+closeButton.BackgroundColor3 = Color3.fromRGB(220, 60, 60)
+closeButton.Text = "Close"
+closeButton.Font = Enum.Font.SourceSans
+closeButton.TextSize = 20
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Parent = frame
+
+-- Create Button
+local createButton = Instance.new("TextButton")
+createButton.Size = UDim2.new(2, 0, 0, 40)
+createButton.Position = UDim2.new(0.55, 0, 0.5, -20)
+createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 90)
+createButton.Text = "fxz"
+createButton.Font = Enum.Font.SourceSans
+createButton.TextSize = 20
+createButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+createButton.Parent = frame
+
+-- Button functionality: Close the GUI
+closeButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
+
+-- Button functionality: Create action
+createButton.MouseButton1Click:Connect(function()
+    createButton.Text = "Created!"
+    wait(1)
+    createButton.Text = "Create"
 end)
