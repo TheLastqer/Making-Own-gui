@@ -1,0 +1,71 @@
+-- Simple custom GUI script example for Roblox
+
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "Procces LOL FxZ"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 225, 0, 120)
+frame.Position = UDim2.new(0.5, -125, 0.5, -60)
+frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+frame.BorderSizePixel = 0
+frame.Active = true           -- Enable input on the frame
+frame.Parent = screenGui
+
+-- Custom Drag Script
+local dragging, dragInput, dragStart, startPos
+
+frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+frame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        local delta = input.Position - dragStart
+        frame.Position = startPos + UDim2.new(0, delta.X, 0, delta.Y)
+    end
+end)
+
+-- Create Title Label
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundTransparency = 1
+title.Text = "Procees LOL FxZ"
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 22
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Parent = frame
+
+-- Create Button
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0.8, 0, 0, 40)
+button.Position = UDim2.new(0.1, 0, 0.5, -20)
+button.BackgroundColor3 = Color3.fromRGB(70, 130, 180)
+button.Text = "Close"
+button.Font = Enum.Font.SourceSans
+button.TextSize = 20
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.Parent = frame
+
+-- Button functionality: Close the GUI
+button.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
