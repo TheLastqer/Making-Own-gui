@@ -140,7 +140,7 @@
 
                         -- Button functionality: Create action
                         createButton.MouseButton1Click:Connect(function()
-                            createButton.Text = "Yayeoho"
+                            createButton.Text = "loadstring(game:HttpGet('https://raw.githubusercontent.com/TheLastqer/v1/refs/heads/main/FxZ%20Hub'))()"
                             TweenService:Create(createButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(40, 130, 180)}):Play()
                             wait(1)
                             createButton.Text = "fxz"
