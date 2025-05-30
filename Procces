@@ -1,76 +1,121 @@
--- Simple custom GUI script example for Roblox
+-- Coolest Custom GUI Script for Roblox
 
 -- Create ScreenGui
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "Procces LOL FxZ"
+screenGui.Name = "CoolestGUI"
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- Create Frame
+-- Create Main Frame
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 280, 0, 150)
-frame.Position = UDim2.new(0.5, -140, 0.5, -75)
-frame.BackgroundColor3 = Color3.fromRGB(25, 28, 38)
+frame.Size = UDim2.new(0, 320, 0, 180)
+frame.Position = UDim2.new(0.5, -160, 0.5, -90)
+frame.BackgroundColor3 = Color3.fromRGB(20, 22, 34)
 frame.BorderSizePixel = 0
 frame.Active = true
+frame.ZIndex = 2
 frame.Parent = screenGui
+
+-- Neon Glow Effect (outer frame)
+local neon = Instance.new("ImageLabel")
+neon.BackgroundTransparency = 1
+neon.Image = "rbxassetid://5107184882"
+neon.ImageColor3 = Color3.fromRGB(0, 255, 200)
+neon.ImageTransparency = 0.7
+neon.Size = UDim2.new(1, 40, 1, 40)
+neon.Position = UDim2.new(0, -20, 0, -20)
+neon.ZIndex = 1
+neon.Parent = frame
 
 -- Rounded corners
 local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 18)
+corner.CornerRadius = UDim.new(0, 22)
 corner.Parent = frame
 
 -- Drop shadow
 local shadow = Instance.new("ImageLabel")
 shadow.BackgroundTransparency = 1
 shadow.Image = "rbxassetid://1316045217"
-shadow.ImageTransparency = 0.7
-shadow.Size = UDim2.new(1, 32, 1, 32)
-shadow.Position = UDim2.new(0, -16, 0, -16)
+shadow.ImageTransparency = 0.8
+shadow.Size = UDim2.new(1, 40, 1, 40)
+shadow.Position = UDim2.new(0, -20, 0, -20)
 shadow.ZIndex = 0
 shadow.Parent = frame
 
--- Create Title Label
+-- Title Label
 local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1, 0, 0, 38)
+title.Size = UDim2.new(1, 0, 0, 44)
 title.BackgroundTransparency = 1
-title.Text = "Procees LOL FxZ"
-title.Font = Enum.Font.GothamBlack
-title.TextSize = 26
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.TextStrokeTransparency = 0.7
+title.Text = "🌟 Coolest GUI 🌟"
+title.Font = Enum.Font.FredokaOne
+title.TextSize = 32
+title.TextColor3 = Color3.fromRGB(0, 255, 200)
+title.TextStrokeTransparency = 0.6
+title.ZIndex = 3
 title.Parent = frame
+
+-- Info Label
+local info = Instance.new("TextLabel")
+info.Size = UDim2.new(1, -40, 0, 28)
+info.Position = UDim2.new(0, 20, 0, 48)
+info.BackgroundTransparency = 1
+info.Text = "Welcome to your custom Roblox GUI!"
+info.Font = Enum.Font.Gotham
+info.TextSize = 18
+info.TextColor3 = Color3.fromRGB(200, 255, 255)
+info.TextStrokeTransparency = 0.8
+info.ZIndex = 3
+info.Parent = frame
 
 -- Create Close Button
 local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0.42, -6, 0, 44)
-closeButton.Position = UDim2.new(0.06, 0, 0.62, 0)
-closeButton.BackgroundColor3 = Color3.fromRGB(220, 60, 60)
-closeButton.Text = "Close"
+closeButton.Size = UDim2.new(0, 38, 0, 38)
+closeButton.Position = UDim2.new(1, -44, 0, 6)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
+closeButton.Text = "✕"
 closeButton.Font = Enum.Font.GothamBold
-closeButton.TextSize = 20
+closeButton.TextSize = 22
 closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 closeButton.AutoButtonColor = false
+closeButton.ZIndex = 4
 closeButton.Parent = frame
 
 local closeCorner = Instance.new("UICorner")
-closeCorner.CornerRadius = UDim.new(0, 12)
+closeCorner.CornerRadius = UDim.new(1, 0)
 closeCorner.Parent = closeButton
 
 -- Create "fxz" Button
 local createButton = Instance.new("TextButton")
-createButton.Size = UDim2.new(0.42, -6, 0, 44)
-createButton.Position = UDim2.new(0.52, 6, 0.62, 0)
-createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 90)
+createButton.Size = UDim2.new(0.4, -8, 0, 48)
+createButton.Position = UDim2.new(0.05, 0, 0.65, 0)
+createButton.BackgroundColor3 = Color3.fromRGB(70, 180, 220)
 createButton.Text = "fxz"
 createButton.Font = Enum.Font.GothamBold
-createButton.TextSize = 20
+createButton.TextSize = 22
 createButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 createButton.AutoButtonColor = false
+createButton.ZIndex = 3
 createButton.Parent = frame
 
 local createCorner = Instance.new("UICorner")
-createCorner.CornerRadius = UDim.new(0, 12)
+createCorner.CornerRadius = UDim.new(0, 14)
 createCorner.Parent = createButton
+
+-- Create "Surprise" Button
+local surpriseButton = Instance.new("TextButton")
+surpriseButton.Size = UDim2.new(0.4, -8, 0, 48)
+surpriseButton.Position = UDim2.new(0.55, 8, 0.65, 0)
+surpriseButton.BackgroundColor3 = Color3.fromRGB(90, 220, 120)
+surpriseButton.Text = "Surprise!"
+surpriseButton.Font = Enum.Font.GothamBold
+surpriseButton.TextSize = 22
+surpriseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+surpriseButton.AutoButtonColor = false
+surpriseButton.ZIndex = 3
+surpriseButton.Parent = frame
+
+local surpriseCorner = Instance.new("UICorner")
+surpriseCorner.CornerRadius = UDim.new(0, 14)
+surpriseCorner.Parent = surpriseButton
 
 -- Button hover animation
 local TweenService = game:GetService("TweenService")
@@ -84,8 +129,9 @@ local function hoverEffect(button, colorHover, colorNormal)
     end)
 end
 
-hoverEffect(closeButton, Color3.fromRGB(255, 80, 80), Color3.fromRGB(220, 60, 60))
-hoverEffect(createButton, Color3.fromRGB(90, 220, 120), Color3.fromRGB(70, 180, 90))
+hoverEffect(closeButton, Color3.fromRGB(255, 120, 120), Color3.fromRGB(255, 80, 80))
+hoverEffect(createButton, Color3.fromRGB(120, 220, 255), Color3.fromRGB(70, 180, 220))
+hoverEffect(surpriseButton, Color3.fromRGB(120, 255, 180), Color3.fromRGB(90, 220, 120))
 
 -- Button functionality: Close the GUI
 closeButton.MouseButton1Click:Connect(function()
@@ -95,10 +141,19 @@ end)
 -- Button functionality: Create action
 createButton.MouseButton1Click:Connect(function()
     createButton.Text = "Created!"
-    TweenService:Create(createButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(40, 130, 60)}):Play()
+    TweenService:Create(createButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(40, 130, 180)}):Play()
     wait(1)
     createButton.Text = "fxz"
-    TweenService:Create(createButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(70, 180, 90)}):Play()
+    TweenService:Create(createButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(70, 180, 220)}):Play()
+end)
+
+-- Button functionality: Surprise action
+surpriseButton.MouseButton1Click:Connect(function()
+    surpriseButton.Text = "🎉 Wow! 🎉"
+    TweenService:Create(surpriseButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 180, 90)}):Play()
+    wait(1)
+    surpriseButton.Text = "Surprise!"
+    TweenService:Create(surpriseButton, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(90, 220, 120)}):Play()
 end)
 
 -- Custom Drag Script
